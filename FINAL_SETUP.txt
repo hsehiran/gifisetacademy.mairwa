@@ -1,0 +1,20 @@
+GIFISET Academy Final V2
+
+FINAL CHANGES
+1. Replace website logo with assets/logo.jpg (uploaded logo).
+2. Contact form emails:
+   - gifisetacademy.mairwa@gmail.com
+   - hse.hiran@gmail.com
+
+NOTE:
+FormSubmit supports one recipient directly. To receive on BOTH addresses,
+change the form action to:
+https://formsubmit.co/gifisetacademy.mairwa@gmail.com
+
+Then create an automatic forwarding rule in Gmail:
+gifisetacademy.mairwa@gmail.com -> hse.hiran@gmail.com
+
+This is free and ensures both inboxes receive every enquiry.
+
+WhatsApp:
++91 99342 66073

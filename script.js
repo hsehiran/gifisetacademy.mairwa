@@ -1,5 +1,21 @@
-const menuBtn=document.getElementById('menuBtn');const navLinks=document.getElementById('navLinks');menuBtn?.addEventListener('click',()=>navLinks.classList.toggle('open'));
-const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');}})},{threshold:.14});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-let counted=false;const stats=document.querySelector('.stats');const countObs=new IntersectionObserver((entries)=>{if(entries[0].isIntersecting&&!counted){counted=true;document.querySelectorAll('[data-count]').forEach(el=>{let end=+el.dataset.count;let start=0;let step=Math.ceil(end/55);let t=setInterval(()=>{start+=step;if(start>=end){start=end;clearInterval(t)}el.textContent=start+(end===95?'':' +').replace(' +','+')},25)})}},{threshold:.3});if(stats)countObs.observe(stats);
-const lightbox=document.getElementById('lightbox'),lightboxImg=document.getElementById('lightboxImg'),closeLightbox=document.getElementById('closeLightbox');document.querySelectorAll('.gallery-grid img').forEach(img=>img.addEventListener('click',()=>{lightbox.style.display='flex';lightboxImg.src=img.src}));closeLightbox?.addEventListener('click',()=>lightbox.style.display='none');lightbox?.addEventListener('click',e=>{if(e.target===lightbox)lightbox.style.display='none'});
-function sendWhatsApp(e){e.preventDefault();const name=document.getElementById('name').value;const phone=document.getElementById('phone').value;const course=document.getElementById('course').value;const msg=document.getElementById('message').value;const text=`Hello Gifiset Academy, my name is ${name}. Phone: ${phone}. I am interested in ${course}. ${msg}`;window.open(`https://wa.me/919546488626?text=${encodeURIComponent(text)}`,'_blank');return false;}
+const menuBtn=document.querySelector('.menu-btn');
+const navLinks=document.querySelector('.nav-links');
+if(menuBtn){menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));}
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+
+const whatsappBtn = document.getElementById('sendWhatsapp');
+if (whatsappBtn) {
+  whatsappBtn.addEventListener('click', () => {
+    const name = document.getElementById('enquiryName')?.value || '';
+    const phone = document.getElementById('enquiryPhone')?.value || '';
+    const course = document.getElementById('enquiryCourse')?.value || '';
+    const message = document.getElementById('enquiryMessage')?.value || '';
+
+    const text = `New Website Enquiry - GIFISET Academy Mairwa%0A%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(phone)}%0ACourse: ${encodeURIComponent(course)}%0AMessage: ${encodeURIComponent(message)}`;
+    window.open(`https://wa.me/919934266073?text=${text}`, '_blank');
+  });
+}
